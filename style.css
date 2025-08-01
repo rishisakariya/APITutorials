@@ -1,0 +1,54 @@
+body {
+      background-color: #a8c7ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+}
+
+.todo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+}
+
+.todo-card {
+      background-color: white;
+      border-left: 4px solid orange;
+      padding: 12px 16px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 200px;
+      box-sizing: border-box;
+}
+
+.todo-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+}
+
+.todo-user,
+.todo-status {
+      font-size: 14px;
+      color: #444;
+}
+
+/* Responsive styles */
+@media (min-width: 480px) {
+      .todo-card {
+            max-width: 45%;
+      }
+}
+
+@media (min-width: 768px) {
+      .todo-card {
+            max-width: 30%;
+      }
+}
+
+@media (min-width: 1024px) {
+      .todo-card {
+            max-width: 200px;
+      }
+}
