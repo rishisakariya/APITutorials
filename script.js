@@ -1,4 +1,3 @@
-
 async function fetchData() {
       try {
             const [usersRes, todosRes] = await Promise.all([
@@ -17,10 +16,17 @@ async function fetchData() {
 
             const todoContainer = document.getElementById('todoContainer');
 
+            // Function to get a random border color
+            function getRandomColor() {
+                  const colors = ['#ff9800', '#f44336', '#2196f3', '#4caf50', '#9c27b0', '#ff5722', '#795548'];
+                  return colors[Math.floor(Math.random() * colors.length)];
+            }
+
             // Create a card for each todo
             todos.forEach(todo => {
                   const card = document.createElement('div');
                   card.classList.add('todo-card');
+                  card.style.setProperty('--border-color', getRandomColor());
 
                   const title = document.createElement('div');
                   title.classList.add('todo-title');
@@ -33,6 +39,7 @@ async function fetchData() {
                   const status = document.createElement('div');
                   status.classList.add('todo-status');
                   status.textContent = todo.completed ? 'Completed' : 'Pending';
+                  status.classList.add(todo.completed ? 'completed' : 'pending');
 
                   card.appendChild(title);
                   card.appendChild(creator);
@@ -40,6 +47,7 @@ async function fetchData() {
 
                   todoContainer.appendChild(card);
             });
+
       } catch (err) {
             console.error('Failed to fetch data:', err);
       }
